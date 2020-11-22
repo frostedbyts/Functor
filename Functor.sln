@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functor.Demo", "Functor.Demo\Functor.Demo.csproj", "{BE331409-CA1A-4BF1-ADB9-6629EB6BC65A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functor.Core", "Functor.Core\Functor.Core.csproj", "{F98ACFF6-68EC-4BBA-873E-62D98C028271}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE331409-CA1A-4BF1-ADB9-6629EB6BC65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE331409-CA1A-4BF1-ADB9-6629EB6BC65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE331409-CA1A-4BF1-ADB9-6629EB6BC65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE331409-CA1A-4BF1-ADB9-6629EB6BC65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98ACFF6-68EC-4BBA-873E-62D98C028271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F98ACFF6-68EC-4BBA-873E-62D98C028271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F98ACFF6-68EC-4BBA-873E-62D98C028271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F98ACFF6-68EC-4BBA-873E-62D98C028271}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFFD5270-272A-4C62-AE2D-4D12310851C2}
+	EndGlobalSection
+EndGlobal
