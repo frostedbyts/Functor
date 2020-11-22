@@ -48,5 +48,6 @@ namespace Functor.Core.Currying
         {
             return t1 => t2 => t3 => t4 => t5 => t6 => t7 => t8 => t9 => func(t1, t2, t3, t4, t5, t6, t7, t8, t9);
         }
+
     }
 }
