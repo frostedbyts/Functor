@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Functor.Core.Currying
 {
+    /*
+     * Significant changes to this file from Curryfy.Curry.CurryExtensions include renaming the file and using brackets for increased readability
+     */
     public static class CurryingExtensions
     {
         public static Func<T1,Func<T2, TResult>> Curry<T1,T2, TResult>(this Func<T1,T2,TResult> func)
