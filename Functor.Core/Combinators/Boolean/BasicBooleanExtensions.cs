@@ -51,7 +51,7 @@ namespace Functor.Core.Combinators.Boolean
             };
         }
 
-        public static Func<T, bool> Imply<T>(this Func<T, bool> a, Func<T, bool> b)
+        public static Func<T, bool> Implies<T>(this Func<T, bool> a, Func<T, bool> b)
         {
             return (T t) =>
             {
@@ -63,7 +63,7 @@ namespace Functor.Core.Combinators.Boolean
         {
             return (T t) =>
             {
-                return a.Imply(b)(t) && b.Imply(a)(t);
+                return a.Implies(b)(t) && b.Implies(a)(t);
             };
         }
 
@@ -115,7 +115,7 @@ namespace Functor.Core.Combinators.Boolean
             };
         }
 
-        public static Func<T1, T2, bool> Imply<T1, T2>(this Func<T1, T2, bool> a, Func<T1, T2, bool> b)
+        public static Func<T1, T2, bool> Implies<T1, T2>(this Func<T1, T2, bool> a, Func<T1, T2, bool> b)
         {
             return (t1, t2) =>
             {
@@ -127,7 +127,7 @@ namespace Functor.Core.Combinators.Boolean
         {
             return (t1, t2) =>
             {
-                return a.Imply(b)(t1, t2) && b.Imply(a)(t1, t2);
+                return a.Implies(b)(t1, t2) && b.Implies(a)(t1, t2);
             };
         }
 
@@ -164,14 +164,14 @@ namespace Functor.Core.Combinators.Boolean
             return (t1, t2, t3) => { return !a.Or(b)(t1, t2, t3); };
         }
 
-        public static Func<T1, T2, T3, bool> Imply<T1, T2, T3>(this Func<T1, T2, T3, bool> a, Func<T1, T2, T3, bool> b)
+        public static Func<T1, T2, T3, bool> Implies<T1, T2, T3>(this Func<T1, T2, T3, bool> a, Func<T1, T2, T3, bool> b)
         {
             return (t1, t2, t3) => { return a.Not().Or(b)(t1, t2, t3); };
         }
 
         public static Func<T1, T2, T3, bool> Biconditional<T1, T2, T3>(this Func<T1, T2, T3, bool> a, Func<T1, T2, T3, bool> b)
         {
-            return (t1, t2, t3) => { return a.Imply(b)(t1, t2, t3) && b.Imply(a)(t1, t2, t3); };
+            return (t1, t2, t3) => { return a.Implies(b)(t1, t2, t3) && b.Implies(a)(t1, t2, t3); };
         }
 
         public static Func<T1,T2,T3,T4,bool> And<T1,T2,T3,T4>(this Func<T1,T2,T3,T4,bool> a, Func<T1,T2,T3,T4,bool> b)
@@ -204,14 +204,14 @@ namespace Functor.Core.Combinators.Boolean
             return (t1, t2, t3, t4) => { return a.Or(b)(t1, t2, t3, t4) && !a.And(b)(t1, t2, t3, t4); };
         }
 
-        public static Func<T1,T2,T3,T4,bool> Imply<T1,T2,T3,T4>(this Func<T1,T2,T3,T4, bool> a, Func<T1,T2,T3,T4,bool> b)
+        public static Func<T1,T2,T3,T4,bool> Implies<T1,T2,T3,T4>(this Func<T1,T2,T3,T4, bool> a, Func<T1,T2,T3,T4,bool> b)
         {
             return (t1, t2, t3, t4) => { return a.Not().Or(b)(t1, t2, t3, t4); };
         }
 
         public static Func<T1,T2,T3,T4,bool> Biconditional<T1,T2,T3,T4>(this Func<T1,T2,T3,T4,bool> a, Func<T1,T2,T3,T4,bool> b)
         {
-            return (t1, t2, t3, t4) => { return a.Imply(b)(t1, t2, t3, t4) && b.Imply(a)(t1, t2, t3, t4); };
+            return (t1, t2, t3, t4) => { return a.Implies(b)(t1, t2, t3, t4) && b.Implies(a)(t1, t2, t3, t4); };
         }
 
         public static Func<T1,T2,T3,T4,T5,bool> And<T1,T2,T3,T4,T5>(this Func<T1,T2,T3,T4,T5,bool> a, Func<T1,T2,T3,T4,T5,bool> b)
@@ -244,14 +244,14 @@ namespace Functor.Core.Combinators.Boolean
             return (t1, t2, t3, t4, t5) => !a.Or(b)(t1, t2, t3, t4, t5);
         }
 
-        public static Func<T1,T2,T3,T4,T5,bool> Imply<T1,T2,T3,T4,T5>(this Func<T1,T2,T3,T4,T5,bool> a, Func<T1,T2,T3,T4,T5,bool> b)
+        public static Func<T1,T2,T3,T4,T5,bool> Implies<T1,T2,T3,T4,T5>(this Func<T1,T2,T3,T4,T5,bool> a, Func<T1,T2,T3,T4,T5,bool> b)
         {
             return (t1, t2, t3, t4, t5) => a.Not().Or(b)(t1, t2, t3, t4, t5);
         }
 
         public static Func<T1,T2,T3,T4,T5,bool> Biconditional<T1,T2,T3,T4,T5>(this Func<T1,T2,T3,T4,T5,bool> a, Func<T1,T2,T3,T4,T5,bool> b)
         {
-            return (t1, t2, t3, t4, t5) => a.Imply(b)(t1, t2, t3, t4, t5) && b.Imply(a)(t1, t2, t3, t4, t5);
+            return (t1, t2, t3, t4, t5) => a.Implies(b)(t1, t2, t3, t4, t5) && b.Implies(a)(t1, t2, t3, t4, t5);
         }
 
         public static Func<T1,T2,T3,T4,T5,T6,bool> And<T1,T2,T3,T4,T5,T6>(this Func<T1,T2,T3,T4,T5,T6,bool> a, Func<T1,T2,T3,T4,T5,T6,bool> b)
@@ -279,14 +279,14 @@ namespace Functor.Core.Combinators.Boolean
             return (t1, t2, t3, t4, t5, t6) => !a.Or(b)(t1, t2, t3, t4, t5, t6);
         }
 
-        public static Func<T1,T2,T3,T4,T5,T6,bool> Imply<T1,T2,T3,T4,T5,T6>(this Func<T1,T2,T3,T4,T5,T6,bool> a, Func<T1,T2,T3,T4,T5,T6,bool> b)
+        public static Func<T1,T2,T3,T4,T5,T6,bool> Implies<T1,T2,T3,T4,T5,T6>(this Func<T1,T2,T3,T4,T5,T6,bool> a, Func<T1,T2,T3,T4,T5,T6,bool> b)
         {
             return (t1, t2, t3, t4, t5, t6) => a.Not().Or(b)(t1, t2, t3, t4, t5, t6);
         }
 
         public static Func<T1,T2,T3,T4,T5,T6,bool> Biconditional<T1,T2,T3,T4,T5,T6>(this Func<T1,T2,T3,T4,T5,T6,bool> a, Func<T1,T2,T3,T4,T5,T6,bool> b)
         {
-            return (t1, t2, t3, t4, t5, t6) => a.Imply(b)(t1, t2, t3, t4, t5, t6) && b.Imply(a)(t1, t2, t3, t4, t5, t6);
+            return (t1, t2, t3, t4, t5, t6) => a.Implies(b)(t1, t2, t3, t4, t5, t6) && b.Implies(a)(t1, t2, t3, t4, t5, t6);
         }
 
         public static Func<T1,T2,T3,T4,T5,T6,T7,bool> And<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,bool> b)
@@ -297,6 +297,31 @@ namespace Functor.Core.Combinators.Boolean
         public static Func<T1,T2,T3,T4,T5,T6,T7,bool> Or<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,bool> b)
         {
             return (t1, t2, t3, t4, t5, t6, t7) => a(t1, t2, t3, t4, t5, t6, t7) || b(t1, t2, t3, t4, t5, t6, t7);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,bool> Not<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> func)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7) => !func(t1, t2, t3, t4, t5, t6, t7);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,bool> Nand<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,bool> b)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7) => !a.And(b)(t1, t2, t3, t4, t5, t6, t7);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,bool> Nor<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,bool> b)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7) => !a.Or(b)(t1, t2, t3, t4, t5, t6, t7);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,bool> Implies<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,bool> b)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7) => a.Not().Or(b)(t1, t2, t3, t4, t5, t6, t7);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,bool> Biconditional<T1,T2,T3,T4,T5,T6,T7>(this Func<T1,T2,T3,T4,T5,T6,T7,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,bool> b)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7) => a.Implies(b)(t1, t2, t3, t4, t5, t6, t7) && b.Implies(a)(t1, t2, t3, t4, t5, t6, t7);
         }
     }
 }

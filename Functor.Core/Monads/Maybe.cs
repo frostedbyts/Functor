@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Functor.Core.Monads
 {
-    public readonly struct Maybe<T> : IEquatable<Maybe<T>>, IEquatable<T>
+    public readonly struct Maybe<T> : IEquatable<Maybe<T>>, IEquatable<T>, IMonad<T>
     {
         public T Value { get; }
         internal Maybe(T value)
@@ -34,6 +34,11 @@ namespace Functor.Core.Monads
             {
                 return IsNothing ? base.GetHashCode() : Value == null ? base.GetHashCode() : Value.GetHashCode();
             }
+        }
+
+        public IMonad<TOut> Bind<TOut>(Func<T, IMonad<TOut>> binder)
+        {
+            return IsSomething ? binder(Value) : Maybe<TOut>.Nothing();
         }
 
         public static bool operator ==(Maybe<T> left, Maybe<T> right)
