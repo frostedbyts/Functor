@@ -8,5 +8,7 @@ namespace Functor.Core.Monads
     {
         public T Value { get; }
         public IMonad<TOut> Bind<TOut>(Func<T, IMonad<TOut>> binder);
+
+        public IMonad<T> Return(T value);
     }
 }

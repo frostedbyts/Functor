@@ -323,5 +323,20 @@ namespace Functor.Core.Combinators.Boolean
         {
             return (t1, t2, t3, t4, t5, t6, t7) => a.Implies(b)(t1, t2, t3, t4, t5, t6, t7) && b.Implies(a)(t1, t2, t3, t4, t5, t6, t7);
         }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> And<T1,T2,T3,T4,T5,T6,T7,T8>(this Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> b)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7, t8) => a(t1, t2, t3, t4, t5, t6, t7, t8) && b(t1, t2, t3, t4, t5, t6, t7, t8);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> Or<T1,T2,T3,T4,T5,T6,T7,T8>(this Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> a, Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> b)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7, t8) => a(t1, t2, t3, t4, t5, t6, t7, t8) || b(t1, t2, t3, t4, t5, t6, t7, t8);
+        }
+
+        public static Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> Not<T1,T2,T3,T4,T5,T6,T7,T8>(this Func<T1,T2,T3,T4,T5,T6,T7,T8,bool> func)
+        {
+            return (t1, t2, t3, t4, t5, t6, t7, t8) => !func(t1, t2, t3, t4, t5, t6, t7, t8);
+        }
     }
 }

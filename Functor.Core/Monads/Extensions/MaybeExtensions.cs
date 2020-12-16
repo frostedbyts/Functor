@@ -54,12 +54,12 @@ namespace Functor.Core.Monads.Extensions
             return maybe.IsSomething ? Maybe<TOut>.Something(map(maybe.Value)) : Maybe<TOut>.Nothing();
         }
 
-        public static T JustOrDefault<T>(this Maybe<T> maybe, T none = default)
+        public static T GetOrDefault<T>(this Maybe<T> maybe, T none = default)
         {
             return maybe.IsSomething ? maybe.Value : none;
         }
 
-        public static TOut JustOrDefault<TIn, TOut>(this Maybe<TIn> maybe, Func<TIn, TOut> get, TOut none = default)
+        public static TOut GetOrDefault<TIn, TOut>(this Maybe<TIn> maybe, Func<TIn, TOut> get, TOut none = default)
         {
             return maybe.IsSomething ? get(maybe.Value) : none;
         }

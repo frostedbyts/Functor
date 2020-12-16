@@ -41,6 +41,9 @@ namespace Functor.Core.Monads
             return IsSomething ? binder(Value) : Maybe<TOut>.Nothing();
         }
 
+        public IMonad<T> Return(T value) => new Maybe<T>(value);
+        
+
         public static bool operator ==(Maybe<T> left, Maybe<T> right)
         {
             return left.Equals(right);

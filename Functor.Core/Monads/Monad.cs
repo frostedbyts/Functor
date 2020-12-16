@@ -16,5 +16,10 @@ namespace Functor.Core.Monads
         {
             return binder(Value);
         }
+
+        public IMonad<T> Return(T value)
+        {
+            return new Monad<T>(value);
+        }
     }
 }
