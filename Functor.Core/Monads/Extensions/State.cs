@@ -22,7 +22,13 @@ namespace Functor.Core.Monads.Extensions
                 return st.RunState(s1); //run second state processor
             });
         }
-        
 
+        public static State<TState, Unit> Put<TState>(TState state) => new State<TState, Unit>(st => Tuple.Create(Unit.Default, state));
+
+        public static State<TState, TValue> Put<TState, TValue>(TState state) => new State<TState, TValue>(state => Tuple.Create<TValue, TState>(default, state));
+
+        public static State<TState, TState> Get<TState>() => new State<TState, TState>(st => Tuple.Create(st, st));
+        
+        
     }
 }
